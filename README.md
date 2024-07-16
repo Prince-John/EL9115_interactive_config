@@ -7,7 +7,7 @@ Interactive configuration tool for EL9115 Analog Video Delay IC series.
 
 ## Configuration Details
 
-The SPI configuration is write only. An 8 bit word is written in each transaction, I've specified the word structure below.
+The SPI configuration for EL9115 is write only. An 8 bit word must be written in each transaction, I've specified the word structure below.
 
  Data word: $[b_7 \ b_6 \ b_5 \ b_4 \ b_3 \ b_2 \ b_1 \ b_0]$ 
  
