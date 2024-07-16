@@ -5,6 +5,7 @@ Authors: Prince John, Jon Elson
 
 Interactive configuration tool for EL9115 Analog Video Delay IC series.  
 
+## Configuration Details
 
 The SPI configuration is write only. An 8 bit word is written in each transaction, I've specified the word structure below.
 
@@ -23,3 +24,12 @@ Register address map:
 The delay value is set in multiples of 2 ns, with the 5 bit unsigned int multiplication factor set using the bits $b_4-b_0$(MSB is $b_4$).
 
 For example the data word for setting the green channel to 50 ns delay will be : `01011001`
+
+
+## Usage
+
+Before starting ensure that the `DEV_ENV` variable in the `spi_utilities.py` file within the src directory is set to `FALSE`. 
+
+Start this utility by running the `main.py` file within the src directory.
+
+I've written this tool to be used on a Raspberry Pi 3b+ but should be relatively easy to modify it for any SPI capable device that has the `spidev` python driver wrapper. 
