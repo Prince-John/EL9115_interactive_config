@@ -1,5 +1,4 @@
 import json
-from typing import Union, Any
 
 DEV_ENV = True
 if DEV_ENV:
@@ -52,9 +51,9 @@ class el9115:
         GPIO.setup(self.cs_pin, GPIO.OUT, initial=GPIO.HIGH)
 
         self.spi.open(0, 0)  # Open SPI bus 0, device 0
-        self.spi.max_speed_hz = 50000  # SPI speed
-        self.spi.mode = 0b00  # SPI clock phase mode, SCLK is low before CS/ is pulled low, Data is shifted out at
-        # the falling edge.
+        self.spi.max_speed_hz = self.max_speed_hz  # SPI speed
+        self.spi.mode = 0b01  # SPI clock phase mode, SCLK is low before CS/ is pulled low, Data is shifted out at
+        # the rising edge and sampled on the falling edge.
 
     def assemble_command_byte(self, color, delay_multiplier):
         """
